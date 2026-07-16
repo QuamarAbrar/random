@@ -1,0 +1,309 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #07050f;
+    --accent-pink: #ff6b8b;
+    --accent-gold: #ffd166;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    font-family: var(--font-sans);
+    color: #ffffff;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Ambient Animated Aurora Mesh Background */
+.aurora-bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 20%, #2c1654 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, #591a38 0%, transparent 45%),
+                radial-gradient(circle at 50% 40%, #11143a 0%, transparent 50%);
+    z-index: -1;
+    filter: blur(80px);
+    animation: auroraDrift 25s ease infinite alternate;
+}
+
+@keyframes auroraDrift {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(8deg) scale(1.1); }
+}
+
+/* Structural Panels Management */
+.view-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.96);
+    transition: var(--transition-smooth);
+    z-index: 1;
+}
+
+.view-panel.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    z-index: 2;
+}
+
+/* Glassmorphism Card Core Blueprint */
+.intro-glass-card, .resolution-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px) saturate(160%);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: var(--glass-shadow);
+    max-width: 440px;
+    width: 90%;
+}
+
+.image-frame-wrapper {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 24px auto;
+    border-radius: 40px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.hero-portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.image-frame-wrapper:hover .hero-portrait {
+    transform: scale(1.08);
+}
+
+.romantic-title {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 32px;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #ff758c, #ff7eb3, #ffd166);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Premium Motion Buttons */
+.premium-btn {
+    position: relative;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 14px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.premium-btn:hover {
+    background: white;
+    color: var(--bg-dark);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Premium Bento Grid Mechanics */
+.bento-container {
+    display: block; /* Native blocks for print safety & precise placement */
+    width: 92%;
+    max-width: 960px;
+    margin: auto;
+}
+
+.bento-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 20px;
+    float: left;
+    box-shadow: var(--glass-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Complex Asymmetric Sizing Logic */
+.box-portrait { width: 58%; height: 320px; margin-right: 2%; }
+.box-meme-1   { width: 40%; height: 320px; }
+.box-core-question { width: 48%; height: 240px; margin-right: 2%; clear: left; }
+.box-meme-2   { width: 50%; height: 240px; }
+
+.grid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.box-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Polaroid Sub-Styling Architecture */
+.polaroid-wrapper {
+    background: white;
+    padding: 12px 12px 20px 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    transform: rotate(-1.5deg);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+}
+
+.box-meme-2 .polaroid-wrapper {
+    transform: rotate(2deg);
+}
+
+.polaroid-wrapper:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+.meme-img {
+    width: 100%;
+    height: 78%;
+    object-fit: cover;
+}
+
+.polaroid-caption {
+    color: #222;
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 12px 0 0 0;
+    font-weight: 600;
+}
+
+/* Question Console Interactivity styles */
+.box-core-question {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.question-text {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    margin: 0 0 24px 0;
+}
+
+.action-row {
+    width: 100%;
+    height: 60px;
+}
+
+.action-btn {
+    position: absolute;
+    padding: 12px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 14px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s, transform 0.1s linear;
+}
+
+.yes-variant {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    left: 15%;
+    box-shadow: 0 10px 20px rgba(255, 117, 140, 0.3);
+}
+
+.yes-variant:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(255, 117, 140, 0.5);
+}
+
+.no-variant {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    right: 15%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    will-change: transform, left, top;
+}
+
+/* Screen 3 Custom Polish */
+#hearts-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.celebration-title {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    line-height: 1.4;
+}
+
+.yay-text {
+    background: linear-gradient(45deg, #ffd166, #ff6b8b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.floating-anim {
+    animation: smoothFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes smoothFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-12px); }
+}

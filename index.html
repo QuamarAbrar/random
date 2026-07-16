@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Nishi, With Love</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="aurora-bg"></div>
+
+    <section id="screen-1" class="view-panel active">
+        <div class="intro-glass-card">
+            <div class="image-frame-wrapper">
+                <img src="pic1.jpg" alt="Nishi Portrait" class="hero-portrait">
+            </div>
+            <h1 class="romantic-title">Hi Nishi,<br><span class="gradient-text">I Love You SM</span></h1>
+            <button id="btn-continue" class="premium-btn">
+                <span>Continue</span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
+    </section>
+
+    <section id="screen-2" class="view-panel">
+        <div class="bento-container">
+            <div class="bento-box box-portrait">
+                <img src="pic2.jpg" alt="Nishi Grid Portrait" class="grid-img">
+                <div class="box-overlay">My Whole World</div>
+            </div>
+
+            <div class="bento-box box-meme-1">
+                <div class="polaroid-wrapper">
+                    <img src="meme1.png" alt="Cute Cat Meme" class="meme-img">
+                    <p class="polaroid-caption">Me when I look at you uwu</p>
+                </div>
+            </div>
+
+            <div class="bento-box box-core-question">
+                <h2 class="question-text">Will you forgive me? 🥺</h2>
+                <div class="action-row">
+                    <button id="btn-yes" class="action-btn yes-variant">Yes</button>
+                    <button id="btn-no" class="action-btn no-variant">No</button>
+                </div>
+            </div>
+
+            <div class="bento-box box-meme-2">
+                <div class="polaroid-wrapper">
+                    <img src="meme2.png" alt="Wholesome Love Meme" class="meme-img">
+                    <p class="polaroid-caption">Sending 9999+ hugs right now</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screen-3" class="view-panel">
+        <canvas id="hearts-canvas"></canvas>
+        <div class="resolution-card">
+            <div class="image-frame-wrapper floating-anim">
+                <img src="pic3.jpg" alt="Nishi Happy Portrait" class="hero-portrait">
+            </div>
+            <h1 class="celebration-title">THANK YOU MY LOVE,<br><span class="yay-text">YAYYYYY! 🎉❤️</span></h1>
+        </div>
+    </section>
+
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
